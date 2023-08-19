@@ -1,6 +1,7 @@
 entrada = int(input())
 positivos=0
 negativos=0
+a=[]
 for i in range(entrada):
     numero=int(input())
     if(numero<0):
