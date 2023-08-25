@@ -68,9 +68,23 @@ for i in range(entrada):
 calculoG = []
 for i in range(entrada):
     x = listaPuntos[i][0]  # Cambiado de "entrada" a "i"
-    listaAciertos.append(expresion(x))
+    calculoG.append(expresion(x))
 
+#2.Calculo mediante el metodo 2
 theta2 = ((b-a)*(1/NElegido))*sum(calculoG)
+
+print(f"Valor encontrado de I con la integral de montecarlo metodo 2 I ≈ {round(theta2,3)}")
+
+#3.Comparacion de valores
+print(f"{abs(I-theta1)}>{abs(I-theta2)}")
+if(abs(I-theta1)<abs(I-theta2)):
+    print("En esta ejecucion la que mas se acerca a I es thetha1")
+else:
+    print("En esta situacion la que mas se acerca a I es thetha2")
+
+#En la practica la que debe acercarse a I en mas ocasiones deberia ser theta2 ya que su manera de encontrar un
+#valor aproximado a I es mediante el calculo y no sobre la aleatoriedad si cae por encima o por debajo de la 
+#recta.
 
 
 
