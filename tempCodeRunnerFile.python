@@ -1,0 +1,27 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Valores de la muestra
+muestra = [0.036394188, 0.198000633, 0.224497533, 0.285533755, 0.369306887, 0.495033667,
+           0.503722405, 0.507966285, 0.522352208, 0.54974308, 0.605741015, 0.623174586,
+           0.644495322, 0.675790805, 0.73784547, 0.824835132, 0.831597994, 0.898770507,
+           0.914497972, 0.929492386]
+
+# Crear la función acumulada empírica
+muestra.sort()
+x_empirico = np.linspace(min(muestra), max(muestra), len(muestra))
+y_empirico = np.arange(1, len(muestra) + 1) / len(muestra)
+
+# Crear la función acumulada teórica (uniforme)
+x_uniforme = np.linspace(0, 1, 100)
+y_uniforme = x_uniforme
+
+# Graficar las funciones acumuladas
+plt.plot(x_empirico, y_empirico, label='Empírico')
+plt.plot(x_uniforme, y_uniforme, label='Uniforme')
+plt.xlabel('Valores')
+plt.ylabel('Probabilidad Acumulada')
+plt.title('Función Acumulada Empírica vs. Uniforme')
+plt.legend()
+plt.grid(True)
+plt.show()

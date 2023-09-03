@@ -40,4 +40,4 @@ Z_005=1.96
 print(-Z_005<Z_0 and Z_0<Z_005)#False
 
 #6.Conclusion
-#Se rechaza la hipotesis nula por lo tanto podemos decir que las operaciones no son independientes
+#Se rechaza la hipotesis nula por lo tanto podemos decir que las observaciones sucesivas no son independientes
