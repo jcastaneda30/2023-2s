@@ -54,6 +54,8 @@
         "queue": "cpp",
         "set": "cpp",
         "xtree": "cpp",
-        "map": "cpp"
-    }
+        "map": "cpp",
+        "windows.h": "c"
+    },
+    "r.lsp.promptToInstall": false
 }

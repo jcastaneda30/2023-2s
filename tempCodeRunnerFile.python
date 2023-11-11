@@ -1,89 +1,11 @@
 import random
-import matplotlib.pyplot as plt
 
-def leadTime():
-    dias = [1, 2, 3]
-    acumulada = [0.6, 0.9, 1]
-    r = random.random()
-    for i in range(len(acumulada)):
-        if r <= acumulada[i]:
-            return dias[i] + 1
+# Genera 5000 números aleatorios
+numeros_aleatorios = [random.randint(1, 1e12) for _ in range(5000)]
 
-def demanda():
-    demanda = [0, 1, 2, 3, 4]
-    acumulada = [0.1, 0.35, 0.7, 0.91, 1]
-    r = random.random()
-    for i in range(len(acumulada)):
-        if r <= acumulada[i]:
-            return demanda[i]
-trueCostoFInal=[]
-for i in range(100):
-    M = 11
-    pedidoActual = 8
-    N = 5
-    inicial = 3
-    deficit = [0] * 365
-    deficit[1] = 0
-    pedido = [0] * 365
-    inventario = [0] * 365
-    inventario[1] = inicial
-    costoPedido = 2000
-    costoInventarioDia=0.4
-    costoDeficitDia=0.6
-    costoFinal = 0
-    desfase = 3
-    for i in range(2, 361):
-        demandaDia = demanda()
-        if i % 5 == 0:
-            pedido[i] = (M - inventario[i - 1] + deficit[i - 1])
-            pedidoActual = pedido[i]
-            desfase = i + leadTime()
-            if pedido[i] < 0:
-                pedido[i] = 0
-            else:
-                costoFinal+=costoPedido
-        if i == desfase:
-            inventario[i] += pedidoActual + inventario[i - 1]
-            if (inventario[i] - demandaDia) < 0:
-                inventario[i]=0
-                deficit[i] = abs(inventario[i - 1] - demandaDia+deficit[i-1])
-        else:
-            if (inventario[i-1] - demandaDia) < 0:
-                inventario[i]=0
-                deficit[i] = abs(inventario[i - 1] - demandaDia+deficit[i-1])
-            else:
-                deficit[i]=0
-                inventario[i] += inventario[i - 1] - demandaDia
-        
+# Guarda los números en un archivo
+with open('numeros_aleatorios.txt', 'w') as archivo:
+    for numero in numeros_aleatorios:
+        archivo.write(f'1{numero}\n')
 
-    for i in range(1,len(inventario)):
-        if(inventario[i]!=0):
-            costoFinal += inventario[i]*costoInventarioDia
-        if(deficit[i]!=0):
-            costoFinal += deficit[i]*costoDeficitDia
-        if(pedido[i]!=0):
-            costoFinal += costoPedido        
-    print(costoFinal)
-    trueCostoFInal.append(costoFinal)
-print(deficit)
-print(inventario)
-print(pedido)
-print(len(trueCostoFInal))
-print(sum(i for i in trueCostoFInal)/len(trueCostoFInal))
-# Ajustar el rango en el bucle para que lista tenga 361 elementos
-lista = range(0, 365)
-
-# Crear el gráfico de escalera con ejes invertidos
-plt.plot( lista,inventario, label='Inventario', linewidth=2, color='blue', alpha=0.7)
-plt.plot( lista,deficit, label='Déficit', linewidth=2, color='red', alpha=0.7)
-
-# Configurar etiquetas y título
-plt.xlabel('Valores')
-plt.ylabel('Índices')
-plt.title('Gráfico de Escalera con Inventario y Déficit (Ejes Invertidos)')
-
-# Agregar una leyenda
-plt.legend()
-
-# Mostrar el gráfico
-plt.show()
+print("Archivo 'numeros_aleatorios.txt' creado con éxito.")

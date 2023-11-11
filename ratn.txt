@@ -1,0 +1,25 @@
+gato ratn 
+serpiente perro 
+ratn perro 
+gato pjaro 
+conejo serpiente 
+ratn perro 
+conejo conejo 
+pjaro serpiente 
+perro pjaro 
+perro ratn 
+perro ratn serpiente conejo 
+pjaro conejo 
+perro conejo 
+serpiente pjaro 
+perro ratn 
+ratn serpiente 
+conejo conejo 
+perro conejo 
+pjaro ratn 
+gato gato 
+gato serpiente 
+ratn perro 
+conejo ratn 
+pjaro ratn perro 
+perro 
